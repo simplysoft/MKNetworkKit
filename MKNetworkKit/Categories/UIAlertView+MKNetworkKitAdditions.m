@@ -25,6 +25,8 @@
 #if TARGET_OS_IPHONE
 #import "UIAlertView+MKNetworkKitAdditions.h"
 
+NI_FIX_CATEGORY_BUG(UIAlertView_MKNetworkKitAdditions)
+
 @implementation UIAlertView (MKNetworkKitAdditions)
 
 +(UIAlertView*) showWithError:(NSError*) networkError {

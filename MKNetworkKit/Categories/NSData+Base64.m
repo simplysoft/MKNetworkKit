@@ -23,6 +23,8 @@
 
 #import "NSData+Base64.h"
 
+NI_FIX_CATEGORY_BUG(NSData_Base64)
+
 //
 // Mapping from 6 bit pattern to ASCII character.
 //

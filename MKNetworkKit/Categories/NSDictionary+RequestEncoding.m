@@ -25,6 +25,8 @@
 
 #import "MKNetworkKit.h"
 
+NI_FIX_CATEGORY_BUG(NSDictionary_RequestEncoding)
+
 @implementation NSDictionary (RequestEncoding)
 
 -(NSString*) urlEncodedKeyValueString {

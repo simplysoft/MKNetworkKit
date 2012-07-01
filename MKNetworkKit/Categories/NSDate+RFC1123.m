@@ -9,6 +9,8 @@
 
 #import "NSDate+RFC1123.h"
 
+NI_FIX_CATEGORY_BUG(NSData_Base64)
+
 @implementation NSDate (RFC1123)
 
 +(NSDate*)dateFromRFC1123:(NSString*)value_

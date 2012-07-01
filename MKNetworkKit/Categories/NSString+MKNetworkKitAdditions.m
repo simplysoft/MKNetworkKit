@@ -26,6 +26,8 @@
 #import "NSString+MKNetworkKitAdditions.h"
 #import <CommonCrypto/CommonDigest.h>
 
+NI_FIX_CATEGORY_BUG(NSString_MKNetworkKitAdditions)
+
 @implementation NSString (MKNetworkKitAdditions)
 
 - (NSString *) md5

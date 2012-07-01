@@ -79,4 +79,6 @@
 #define kMKNetworkKitRequestTimeOutInSeconds 30
 #endif
 
-
+// Use Nimbus Category Fix
+#define NI_FIX_CATEGORY_BUG(name) @interface NI_FIX_CATEGORY_BUG_##name @end \
+@implementation NI_FIX_CATEGORY_BUG_##name @end
