@@ -43,7 +43,7 @@
 @interface MKNetworkEngine (/*Private Methods*/)
 
 @property (copy, nonatomic) NSString *hostName;
-@property (strong, nonatomic) Reachability *reachability;
+@property (strong, nonatomic) MKReachability *reachability;
 @property (copy, nonatomic) NSDictionary *customHeaders;
 @property (assign, nonatomic) Class customOperationSubclass;
 
@@ -117,7 +117,7 @@ static NSOperationQueue *_sharedNetworkQueue;
                                                  object:nil];
       
       self.hostName = hostName;
-      self.reachability = [Reachability reachabilityWithHostname:self.hostName];
+      self.reachability = [MKReachability reachabilityWithHostname:self.hostName];
       [self.reachability startNotifier];
     }
     
