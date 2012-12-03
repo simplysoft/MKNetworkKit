@@ -23,7 +23,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-@class MKNetworkOperation;
+@class PSMKNetworkOperation;
 
 typedef enum {
   MKNetworkOperationStateReady = 1,
@@ -33,13 +33,13 @@ typedef enum {
 
 typedef void (^MKNKVoidBlock)(void);
 typedef void (^MKNKProgressBlock)(double progress);
-typedef void (^MKNKResponseBlock)(MKNetworkOperation* completedOperation);
+typedef void (^MKNKResponseBlock)(PSMKNetworkOperation* completedOperation);
 #if TARGET_OS_IPHONE
 typedef void (^MKNKImageBlock) (UIImage* fetchedImage, NSURL* url, BOOL isInCache);
 #elif TARGET_OS_MAC
 typedef void (^MKNKImageBlock) (NSImage* fetchedImage, NSURL* url, BOOL isInCache);
 #endif
-typedef void (^MKNKResponseErrorBlock)(MKNetworkOperation* completedOperation, NSError* error);
+typedef void (^MKNKResponseErrorBlock)(PSMKNetworkOperation* completedOperation, NSError* error);
 typedef void (^MKNKErrorBlock)(NSError* error);
 
 typedef void (^MKNKAuthBlock)(NSURLAuthenticationChallenge* challenge);
@@ -69,7 +69,7 @@ typedef enum {
  *  Printing a MKNetworkOperation prints out a cURL command that can be copied and pasted directly on terminal
  *  Freezable operations are serialized when network connectivity is lost and performed when connection is restored
  */
-@interface MKNetworkOperation : NSOperation {
+@interface PSMKNetworkOperation : NSOperation {
   
 @private
   int _state;
@@ -565,7 +565,7 @@ typedef enum {
 -(BOOL) isCacheable;
 -(void) setCachedData:(NSData*) cachedData;
 -(void) setCacheHandler:(MKNKResponseBlock) cacheHandler;
--(void) updateHandlersFromOperation:(MKNetworkOperation*) operation;
+-(void) updateHandlersFromOperation:(PSMKNetworkOperation*) operation;
 -(void) updateOperationBasedOnPreviousHeaders:(NSMutableDictionary*) headers;
 -(NSString*) uniqueIdentifier;
 

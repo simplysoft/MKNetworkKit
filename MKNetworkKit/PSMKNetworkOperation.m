@@ -39,7 +39,7 @@
 #error MKNetworkKit is ARC only. Either turn on ARC for the project or use -fobjc-arc flag
 #endif
 
-@interface MKNetworkOperation (/*Private Methods*/)
+@interface PSMKNetworkOperation (/*Private Methods*/)
 @property (strong, nonatomic) NSURLConnection *connection;
 @property (copy, nonatomic) NSString *uniqueId;
 @property (strong, nonatomic) NSMutableURLRequest *request;
@@ -92,7 +92,7 @@
 
 @end
 
-@implementation MKNetworkOperation
+@implementation PSMKNetworkOperation
 
 @dynamic freezable;
 
@@ -242,7 +242,7 @@
   
   if([self.request.HTTPMethod isEqualToString:@"GET"] || [self.request.HTTPMethod isEqualToString:@"HEAD"]) {
     
-    MKNetworkOperation *anotherObject = (MKNetworkOperation*) object;
+    PSMKNetworkOperation *anotherObject = (PSMKNetworkOperation*) object;
     return ([[self uniqueIdentifier] isEqualToString:[anotherObject uniqueIdentifier]]);
   }
   
@@ -378,7 +378,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  MKNetworkOperation *theCopy = [[[self class] allocWithZone:zone] init];  // use designated initializer
+  PSMKNetworkOperation *theCopy = [[[self class] allocWithZone:zone] init];  // use designated initializer
   
   theCopy.postDataEncoding = _postDataEncoding;
   [theCopy setStringEncoding:self.stringEncoding];
@@ -418,7 +418,7 @@
   _connection = nil;
 }
 
--(void) updateHandlersFromOperation:(MKNetworkOperation*) operation {
+-(void) updateHandlersFromOperation:(PSMKNetworkOperation*) operation {
   
   [self.responseBlocks addObjectsFromArray:operation.responseBlocks];
   [self.errorBlocks addObjectsFromArray:operation.errorBlocks];

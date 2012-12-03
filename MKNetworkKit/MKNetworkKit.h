@@ -67,8 +67,8 @@
 
 #import "Reachability/MKReachability.h"
 
-#import "MKNetworkOperation.h"
-#import "MKNetworkEngine.h"
+#import "PSMKNetworkOperation.h"
+#import "PSMKNetworkEngine.h"
 
 #define kMKNetworkEngineOperationCountChanged @"kMKNetworkEngineOperationCountChanged"
 #define MKNETWORKCACHE_DEFAULT_COST 10

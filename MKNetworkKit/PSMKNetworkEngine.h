@@ -39,7 +39,7 @@
  *  MKNetworkEngine encapsulates a Reachability object that relieves you of managing network connectivity losses
  *  MKNetworkEngine also allows you to provide custom header fields that gets appended automatically to every request
  */
-@interface MKNetworkEngine : NSObject
+@interface PSMKNetworkEngine : NSObject
 
 /*!
  *  @abstract Initializes your network engine with a hostname
@@ -90,7 +90,7 @@
  *  
  */
 
--(MKNetworkOperation*) operationWithPath:(NSString*) path;
+-(PSMKNetworkOperation*) operationWithPath:(NSString*) path;
 
 /*!
  *  @abstract Creates a simple GET Operation with a request URL and parameters
@@ -102,7 +102,7 @@
  *  The HTTP Method is implicitly assumed to be GET
  *  
  */
--(MKNetworkOperation*) operationWithPath:(NSString*) path
+-(PSMKNetworkOperation*) operationWithPath:(NSString*) path
                          params:(NSDictionary*) body;
 
 /*!
@@ -115,7 +115,7 @@
  *  The params dictionary is attached to the body if the HTTP Method is POST/PUT
  *  The HTTP Method is implicitly assumed to be GET
  */
--(MKNetworkOperation*) operationWithPath:(NSString*) path
+-(PSMKNetworkOperation*) operationWithPath:(NSString*) path
                          params:(NSDictionary*) body
                    httpMethod:(NSString*)method;
 
@@ -131,7 +131,7 @@
  *  The params dictionary is attached to the body if the HTTP Method is POST/PUT
  *  The previously mentioned methods operationWithPath: and operationWithPath:params: call this internally
  */
--(MKNetworkOperation*) operationWithPath:(NSString*) path
+-(PSMKNetworkOperation*) operationWithPath:(NSString*) path
                          params:(NSDictionary*) body
                    httpMethod:(NSString*)method 
                           ssl:(BOOL) useSSL;
@@ -145,7 +145,7 @@
  *  The default headers you specified in your MKNetworkEngine subclass gets added to the headers
  *  The HTTP method is implicitly assumed to be GET.
  */
--(MKNetworkOperation*) operationWithURLString:(NSString*) urlString;
+-(PSMKNetworkOperation*) operationWithURLString:(NSString*) urlString;
 
 /*!
  *  @abstract Creates a simple GET Operation with a request URL and parameters
@@ -157,7 +157,7 @@
  *  The body dictionary in this method gets attached to the URL as query parameters
  *  The HTTP method is implicitly assumed to be GET.
  */
--(MKNetworkOperation*) operationWithURLString:(NSString*) urlString
+-(PSMKNetworkOperation*) operationWithURLString:(NSString*) urlString
                                        params:(NSDictionary*) body;
 
 /*!
@@ -174,7 +174,7 @@
  *  @seealso
  *  prepareHeaders:
  */
--(MKNetworkOperation*) operationWithURLString:(NSString*) urlString
+-(PSMKNetworkOperation*) operationWithURLString:(NSString*) urlString
                               params:(NSDictionary*) body
                         httpMethod:(NSString*) method;
 
@@ -188,7 +188,7 @@
  *  @seealso
  *  operationWithURLString:params:httpMethod:
  */
--(void) prepareHeaders:(MKNetworkOperation*) operation;
+-(void) prepareHeaders:(PSMKNetworkOperation*) operation;
 
 /*!
  *  @abstract Handy helper method for fetching images asynchronously in the background
@@ -200,7 +200,7 @@
  *  @seealso
  *  imageAtUrl:onCompletion:
  */
-- (MKNetworkOperation*)imageAtURL:(NSURL *)url size:(CGSize) size onCompletion:(MKNKImageBlock) imageFetchedBlock;
+- (PSMKNetworkOperation*)imageAtURL:(NSURL *)url size:(CGSize) size onCompletion:(MKNKImageBlock) imageFetchedBlock;
 
 /*!
  *  @abstract Handy helper method for fetching images
@@ -210,7 +210,7 @@
  *  The hostname of the engine is *NOT* prefixed.
  *  The image is returned to the caller via MKNKImageBlock callback block. 
  */
-- (MKNetworkOperation*)imageAtURL:(NSURL *)url onCompletion:(MKNKImageBlock) imageFetchedBlock;
+- (PSMKNetworkOperation*)imageAtURL:(NSURL *)url onCompletion:(MKNKImageBlock) imageFetchedBlock;
 
 /*!
  *  @abstract Enqueues your operation into the shared queue
@@ -220,7 +220,7 @@
  *  @seealso
  *  enqueueOperation:forceReload:
  */
--(void) enqueueOperation:(MKNetworkOperation*) request;
+-(void) enqueueOperation:(PSMKNetworkOperation*) request;
 
 /*!
  *  @abstract Enqueues your operation into the shared queue.
@@ -232,7 +232,7 @@
  *  @seealso
  *  enqueueOperation:
  */
--(void) enqueueOperation:(MKNetworkOperation*) operation forceReload:(BOOL) forceReload;
+-(void) enqueueOperation:(PSMKNetworkOperation*) operation forceReload:(BOOL) forceReload;
 
 /*!
  *  @abstract HostName of the engine
